@@ -1,66 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- USER: Change the title of your website -->
-    <title>ABIN B | Creative Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- This line loads the script after the HTML has been parsed -->
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maadaen | Music</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .album {
+      margin: 2rem 0;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .album h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .spotify-embed {
+      margin-top: 1rem;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    .ambient-controls {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .ambient-controls button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      background: #1db954;
+      color: white;
+      border-radius: 999px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .ambient-controls button:hover {
+      background: #14833b;
+    }
+  </style>
 </head>
 <body>
-
-    <!-- This canvas is used for the dynamic background animation -->
-    <canvas id="dynamic-background"></canvas>
-
-    <!-- The initial loading screen -->
-    <div id="loader-overlay">
-        <div class="loader-content">
-            <!-- USER: Change the entry message -->
-            <h1>ABIN BABU</h1>
-            <h2>Deviant Shapeshifter.</h2>
-            <p>The creative portfolio of an engineer-turned-artist persona.</p>
-            <button id="enter-button">Enter</button>
-        </div>
+  <div class="container">
+    <div class="section-title animate__animated animate__fadeInDown">
+      <h1>Maadaen’s Music</h1>
     </div>
 
-    <!-- Main content that appears after entering -->
-    <main id="main-content" class="hidden">
-        <!-- USER: Replace with your profile image or logo -->
-        <img src="assets/profile-image.png" alt="Profile Image" class="profile-image">
-
-        <!-- USER: Change to your name or brand name -->
-        <h1 class="main-title">ABIN B</h1>
-
-        <!-- USER: Change the description to a short bio about yourself -->
-        <p class="description">
-            I am a multidisciplinary engineer-turned-artist exploring the intersection of art, sound, nature and technology. This maddees realm is a curated collection of my work.
-        </p>
-
-        <!-- USER: Update your navigation links. You can link to other pages or external sites. -->
-        <nav class="navigation">
-            <a href="#" target="_blank">Projects</a>
-            <a href="#" target="_blank">About</a>
-            <a href="beingabin@gmail.com" target="_blank">Contact</a>
-        </nav>
-    </main>
-    
-
-    <!-- Audio player and controls -->
-    <!-- USER: Replace with the path to your background music file -->
-    <audio id="background-audio" src="assets/background-music.mp3" loop></audio>
-    <div id="audio-controls" class="hidden">
-        <button id="play-pause-button">Play</button>
+    <div class="album animate__animated animate__fadeInUp">
+      <h2>AlienNation</h2>
+      <p>A sonic exploration of cosmic solitude and psychedelic awakening. This album blends ambient textures with subtle IDM layers and melancholic tones.</p>
+      <div class="spotify-embed">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/your_album_id_here?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
     </div>
 
-    <!-- Footer for social media links -->
-    <footer id="social-links" class="hidden">
-        <!-- USER: Update these links with your social media profiles -->
-        <a href="https://open.spotify.com/artist/6RRJhmDUkb12YjJqu4Blz1?si=M3wJphdMTnGvJwaemzyg4g" target="_blank">Spotify</a>
-        <a href="https://www.instagram.com/the.maadaen/" target="_blank">Instagram</a>
-        <a href="https://www.linkedin.com/in/abinbabu/" target="_blank">LinkedIn</a>
-    </footer>
+    <div class="album animate__animated animate__fadeInUp">
+      <h2>Shapeshifting (Single)</h2>
+      <p>A melancholic yet empowering track about identity, change, and inner transformation — set in a dreamy psy-pop soundscape.</p>
+      <div class="spotify-embed">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/your_track_id_here?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
 
+    <div class="ambient-controls">
+      <button onclick="startAmbient()">Play Ambient</button>
+    </div>
+  </div>
+
+  <audio id="ambientSound" loop preload="auto">
+    <source src="Drops_on_the_Horns.wav" type="audio/wav" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function startAmbient() {
+      const ambient = document.getElementById("ambientSound");
+      ambient.volume = 0.2;
+      ambient.play();
+    }
+  </script>
 </body>
 </html>
