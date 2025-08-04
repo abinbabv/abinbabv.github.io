@@ -1,121 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maadaen | Creative Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Space Grotesk', sans-serif;
-      background: #0e0e0e;
-      color: #f0f0f0;
-      overflow-x: hidden;
-    }
-
-    header {
-      padding: 2rem;
-      text-align: center;
-      background: linear-gradient(135deg, #1a1a1a, #101010);
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-      animation: fadeInDown 1s ease;
-    }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .animated {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .article-preview, .spotify-track, .photo-gallery {
-      margin-bottom: 3rem;
-      background: #181818;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .article-preview:hover, .spotify-track:hover, .photo-gallery:hover {
-      transform: scale(1.02);
-    }
-
-    iframe {
-      width: 100%;
-      height: 80px;
-      border: none;
-    }
-
-    audio {
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+  <!-- Ambient Background Audio (User-triggered) -->
+  <audio id="ambientAudio" loop>
+    <source src="Drops on the Horns.wav" type="audio/wav">
+  </audio>
+
+  <!-- Header -->
   <header>
-    <h1>Maadaen | Creative Polymath</h1>
+    <h1>Maadaen</h1>
+    <nav>
+      <a href="#music">Music</a>
+      <a href="#blog">Blog</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <section id="medium-articles">
-    <h2>Latest Articles</h2>
-    <div class="article-preview">Medium articles will be fetched here dynamically.</div>
-  </section>
-
-  <section id="spotify-tracks">
-    <h2>Featured Music</h2>
-    <div class="spotify-track">
-      <iframe src="https://open.spotify.com/embed/track/1n7mn7qxKpSUy5rqL7lYxC" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      <p>Track: Cosmic Solitude<br/>EP: AlienNation<br/>Genre: Ambient IDM</p>
+  <!-- Hero Section -->
+  <section class="hero" onclick="playAmbient()">
+    <div class="overlay">
+      <h2>Shapeshifter of Sound, Story, and Soul</h2>
+      <p>Maadaen | Ambient / IDM / Psy-pop / Cloud Architect / Writer</p>
     </div>
   </section>
 
-  <section id="gallery">
-    <h2>Photojournalism Gallery</h2>
-    <div class="photo-gallery">FujiFilm photography samples will be displayed here.</div>
+  <!-- Spotify Section -->
+  <section id="music">
+    <h2>Listen to My Sound</h2>
+    <div class="music-preview">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0ueIoztFCMEm3pC8iKyNRv?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="album-description">
+        <h3>AlienNation</h3>
+        <p>An interstellar confession, vibrating with the noise of cosmic solitude.</p>
+      </div>
+    </div>
   </section>
 
-  <audio id="ambient" loop>
-    <source src="Drops on the Horns.wav" type="audio/wav">
-    Your browser does not support the audio element.
-  </audio>
+  <!-- Blog Section -->
+  <section id="blog">
+    <h2>Latest Medium Articles</h2>
+    <div id="medium-articles"></div>
+  </section>
 
-  <script>
-    // Scroll reveal animation
-    ScrollReveal().reveal('.article-preview, .spotify-track, .photo-gallery', {
-      distance: '30px',
-      duration: 1000,
-      easing: 'ease-out',
-      origin: 'bottom',
-      interval: 200,
-      opacity: 0,
-      reset: false
-    });
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Photojournalism</h2>
+    <div class="photo-grid">
+      <!-- Sample Fuji photos -->
+      <img src="photo1.jpg" alt="Journalism Sample 1">
+      <img src="photo2.jpg" alt="Journalism Sample 2">
+      <img src="photo3.jpg" alt="Journalism Sample 3">
+    </div>
+  </section>
 
-    // Ambient sound on user interaction
-    let ambientStarted = false;
-    function startAmbient() {
-      if (!ambientStarted) {
-        document.getElementById('ambient').play();
-        ambientStarted = true;
-      }
-    }
-    window.addEventListener('click', startAmbient);
-    window.addEventListener('keydown', startAmbient);
-  </script>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <div class="mailing-list">
+      <h3>Join My Mailing List</h3>
+      <input type="email" placeholder="Enter your email">
+      <button>Subscribe</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Maadaen. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
-
 </html>
