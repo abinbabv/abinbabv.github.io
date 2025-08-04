@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- USER: Change the title of your website -->
+    <title>Your Name | Creative Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- This line loads the script after the HTML has been parsed -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- This canvas is used for the dynamic background animation -->
+    <canvas id="dynamic-background"></canvas>
+
+    <!-- The initial loading screen -->
+    <div id="loader-overlay">
+        <div class="loader-content">
+            <!-- USER: Change the entry message -->
+            <h1>Your Name</h1>
+            <p>The creative portfolio of a visual artist and designer.</p>
+            <button id="enter-button">Enter</button>
+        </div>
+    </div>
+
+    <!-- Main content that appears after entering -->
+    <main id="main-content" class="hidden">
+        <!-- USER: Replace with your profile image or logo -->
+        <img src="assets/profile-image.png" alt="Profile Image" class="profile-image">
+
+        <!-- USER: Change to your name or brand name -->
+        <h1 class="main-title">Your Name</h1>
+
+        <!-- USER: Change the description to a short bio about yourself -->
+        <p class="description">
+            I am a multidisciplinary artist exploring the intersection of digital art, sound, and motion. This space is a curated collection of my work.
+        </p>
+
+        <!-- USER: Update your navigation links. You can link to other pages or external sites. -->
+        <nav class="navigation">
+            <a href="#" target="_blank">Projects</a>
+            <a href="#" target="_blank">About</a>
+            <a href="#" target="_blank">Contact</a>
+        </nav>
+    </main>
+
+    <!-- Audio player and controls -->
+    <!-- USER: Replace with the path to your background music file -->
+    <audio id="background-audio" src="assets/background-music.mp3" loop></audio>
+    <div id="audio-controls" class="hidden">
+        <button id="play-pause-button">Play</button>
+    </div>
+
+    <!-- Footer for social media links -->
+    <footer id="social-links" class="hidden">
+        <!-- USER: Update these links with your social media profiles -->
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">LinkedIn</a>
+    </footer>
+
+</body>
+</html>

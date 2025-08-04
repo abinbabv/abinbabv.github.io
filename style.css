@@ -1,0 +1,185 @@
+/* --- USER: You can customize the main colors and fonts here --- */
+:root {
+    --primary-color: #ffffff;
+    --background-color: #000000;
+    --overlay-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for readability */
+    --accent-color: #00bcd4;
+    --main-font: 'Helvetica Neue', Arial, sans-serif;
+}
+/* ----------------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    overflow: hidden; /* Prevents scrollbars from appearing */
+}
+
+#dynamic-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Places the canvas behind all other content */
+}
+
+#loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+    transition: opacity 0.5s ease-out;
+}
+
+.loader-content {
+    max-width: 500px;
+    padding: 20px;
+}
+
+.loader-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#enter-button {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#enter-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--overlay-color); /* Helps text stand out */
+    backdrop-filter: blur(5px); /* Creates a modern frosted glass effect */
+    transition: opacity 1s ease-in;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.main-title {
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+.description {
+    max-width: 600px;
+    margin: 1rem 0 2rem 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.navigation a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.navigation a:hover {
+    border-color: var(--accent-color);
+}
+
+#audio-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+#play-pause-button {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#play-pause-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+#social-links {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+#social-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+#social-links a:hover {
+    color: var(--accent-color);
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none; /* Prevents interaction with hidden elements */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.2rem;
+    }
+    .description {
+        font-size: 1rem;
+    }
+    .navigation a {
+        display: block;
+        margin: 10px 0;
+    }
+    #audio-controls {
+        top: 20px;
+        bottom: auto;
+    }
+    #social-links {
+        display: none; /* Hide social links on very small screens to save space */
+    }
+}
