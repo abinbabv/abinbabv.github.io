@@ -1,88 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maadaen | Creative Portfolio</title>
+  <meta name="description" content="Welcome to Maadaen's Realm: Music, Writing, Photography, and Technology" />
+  <title>Maadaen | Cosmic Portal</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <script defer src="scripts.js"></script>
 </head>
+
 <body>
-  <!-- Ambient Background Audio (User-triggered) -->
-  <audio id="ambientAudio" loop>
-    <source src="Drops on the Horns.wav" type="audio/wav">
+  <!-- Ambient Background Audio -->
+  <audio id="ambient-audio" loop>
+    <source src="Drops on the Horns.wav" type="audio/wav" />
+    Your browser does not support the audio element.
   </audio>
 
-  <!-- Header -->
-  <header>
-    <h1>Maadaen</h1>
-    <nav>
-      <a href="#music">Music</a>
-      <a href="#blog">Blog</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="overlay">
+      <h1>Enter the Dark Cosmic Portal</h1>
+      <p>Welcome to Maadaen's multidimensional creative space</p>
+      <button id="enter-portal">Enter</button>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" onclick="playAmbient()">
-    <div class="overlay">
-      <h2>Shapeshifter of Sound, Story, and Soul</h2>
-      <p>Maadaen | Ambient / IDM / Psy-pop / Cloud Architect / Writer</p>
-    </div>
-  </section>
+  <!-- Sections -->
+  <main id="main-content" class="hidden">
+    <!-- About -->
+    <section id="about" class="section">
+      <h2>About Maadaen</h2>
+      <p>A polymathic shapeshifter fusing philosophy, IDM music, ambient soundscapes, visual storytelling and poetic writings.</p>
+    </section>
 
-  <!-- Spotify Section -->
-  <section id="music">
-    <h2>Listen to My Sound</h2>
-    <div class="music-preview">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0ueIoztFCMEm3pC8iKyNRv?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      <div class="album-description">
-        <h3>AlienNation</h3>
-        <p>An interstellar confession, vibrating with the noise of cosmic solitude.</p>
+    <!-- Music -->
+    <section id="music" class="section">
+      <h2>Music</h2>
+      <div class="spotify-tracks">
+        <div class="track">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/XYZ" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <p class="track-desc">AlienNation — A transmission of cosmic solitude through ambient tones and IDM textures.</p>
+        </div>
+        <!-- Add more tracks similarly -->
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Blog Section -->
-  <section id="blog">
-    <h2>Latest Medium Articles</h2>
-    <div id="medium-articles"></div>
-  </section>
+    <!-- Writing Blog -->
+    <section id="blog" class="section">
+      <h2>Writing</h2>
+      <div class="blog-filter">
+        <input type="text" placeholder="Filter by tag or keyword..." id="blogFilterInput">
+      </div>
+      <div id="blog-entries">
+        <!-- Dynamic entries from blog CMS -->
+      </div>
+    </section>
 
-  <!-- Gallery Section -->
-  <section id="gallery">
-    <h2>Photojournalism</h2>
-    <div class="photo-grid">
-      <!-- Sample Fuji photos -->
-      <img src="photo1.jpg" alt="Journalism Sample 1">
-      <img src="photo2.jpg" alt="Journalism Sample 2">
-      <img src="photo3.jpg" alt="Journalism Sample 3">
-    </div>
-  </section>
+    <!-- Gallery -->
+    <section id="gallery" class="section">
+      <h2>Photojournalism</h2>
+      <div class="gallery-grid">
+        <!-- Thumbnails fetched dynamically -->
+      </div>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-    <div class="mailing-list">
-      <h3>Join My Mailing List</h3>
-      <input type="email" placeholder="Enter your email">
-      <button>Subscribe</button>
-    </div>
-  </section>
+    <!-- Mailing List -->
+    <section id="subscribe" class="section">
+      <h2>Subscribe for Cosmic Updates</h2>
+      <form id="subscribe-form">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
 
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <h2>Contact Maadaen</h2>
+      <form id="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Maadaen. All rights reserved.</p>
+    <p>&copy; 2025 Maadaen. All Rights Reserved.</p>
   </footer>
-
-  <script src="main.js"></script>
 </body>
+
 </html>
