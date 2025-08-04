@@ -1,101 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maadaen | Music</title>
+  <title>Maadaen | Creative Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background: #0a0a0a;
-      color: #f0f0f0;
       margin: 0;
-      padding: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      background: #0e0e0e;
+      color: #f0f0f0;
       overflow-x: hidden;
     }
-    .container {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .album {
-      margin: 2rem 0;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 1rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-    .album h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .spotify-embed {
-      margin-top: 1rem;
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-    .ambient-controls {
-      margin-top: 2rem;
+
+    header {
+      padding: 2rem;
       text-align: center;
+      background: linear-gradient(135deg, #1a1a1a, #101010);
     }
-    .ambient-controls button {
-      padding: 0.75rem 1.5rem;
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      animation: fadeInDown 1s ease;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .animated {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .article-preview, .spotify-track, .photo-gallery {
+      margin-bottom: 3rem;
+      background: #181818;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .article-preview:hover, .spotify-track:hover, .photo-gallery:hover {
+      transform: scale(1.02);
+    }
+
+    iframe {
+      width: 100%;
+      height: 80px;
       border: none;
-      background: #1db954;
-      color: white;
-      border-radius: 999px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
     }
-    .ambient-controls button:hover {
-      background: #14833b;
+
+    audio {
+      display: none;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="section-title animate__animated animate__fadeInDown">
-      <h1>Maadaen’s Music</h1>
-    </div>
+  <header>
+    <h1>Maadaen | Creative Polymath</h1>
+  </header>
 
-    <div class="album animate__animated animate__fadeInUp">
-      <h2>AlienNation</h2>
-      <p>A sonic exploration of cosmic solitude and psychedelic awakening. This album blends ambient textures with subtle IDM layers and melancholic tones.</p>
-      <div class="spotify-embed">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/your_album_id_here?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-    </div>
+  <section id="medium-articles">
+    <h2>Latest Articles</h2>
+    <div class="article-preview">Medium articles will be fetched here dynamically.</div>
+  </section>
 
-    <div class="album animate__animated animate__fadeInUp">
-      <h2>Shapeshifting (Single)</h2>
-      <p>A melancholic yet empowering track about identity, change, and inner transformation — set in a dreamy psy-pop soundscape.</p>
-      <div class="spotify-embed">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/your_track_id_here?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
+  <section id="spotify-tracks">
+    <h2>Featured Music</h2>
+    <div class="spotify-track">
+      <iframe src="https://open.spotify.com/embed/track/1n7mn7qxKpSUy5rqL7lYxC" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <p>Track: Cosmic Solitude<br/>EP: AlienNation<br/>Genre: Ambient IDM</p>
     </div>
+  </section>
 
-    <div class="ambient-controls">
-      <button onclick="startAmbient()">Play Ambient</button>
-    </div>
-  </div>
+  <section id="gallery">
+    <h2>Photojournalism Gallery</h2>
+    <div class="photo-gallery">FujiFilm photography samples will be displayed here.</div>
+  </section>
 
-  <audio id="ambientSound" loop preload="auto">
-    <source src="Drops_on_the_Horns.wav" type="audio/wav" />
+  <audio id="ambient" loop>
+    <source src="Drops on the Horns.wav" type="audio/wav">
     Your browser does not support the audio element.
   </audio>
 
   <script>
+    // Scroll reveal animation
+    ScrollReveal().reveal('.article-preview, .spotify-track, .photo-gallery', {
+      distance: '30px',
+      duration: 1000,
+      easing: 'ease-out',
+      origin: 'bottom',
+      interval: 200,
+      opacity: 0,
+      reset: false
+    });
+
+    // Ambient sound on user interaction
+    let ambientStarted = false;
     function startAmbient() {
-      const ambient = document.getElementById("ambientSound");
-      ambient.volume = 0.2;
-      ambient.play();
+      if (!ambientStarted) {
+        document.getElementById('ambient').play();
+        ambientStarted = true;
+      }
     }
+    window.addEventListener('click', startAmbient);
+    window.addEventListener('keydown', startAmbient);
   </script>
 </body>
+
 </html>
